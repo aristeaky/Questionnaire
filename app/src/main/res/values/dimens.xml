@@ -1,0 +1,4 @@
+<resources>
+    <!-- Define the corner radius for your buttons -->
+    <dimen name="button_corner_radius">8dp</dimen>
+</resources>
