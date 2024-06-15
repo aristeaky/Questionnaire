@@ -7,10 +7,12 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="437dp"
-        android:layout_height="448dp"
+        android:layout_height="0dp"
         android:layout_marginStart="76dp"
+        android:layout_marginTop="111dp"
         android:layout_marginEnd="76dp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        android:layout_marginBottom="234dp"
+        app:layout_constraintBottom_toTopOf="@+id/playerName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -35,5 +37,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imageView" />
+
+    <EditText
+        android:id="@+id/playerName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="38dp"
+        android:hint="Add your nickname"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -29,6 +29,7 @@ public class ReviewActivity extends AppCompatActivity {
     private List<Question> questions;
     private int currentQuestionIndex = 0;
     private ArrayList<String> selectedAnswers;
+    private String playerName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +40,7 @@ public class ReviewActivity extends AppCompatActivity {
         questions = questionHandler.getQuestions();
 
         Intent intent = getIntent();
+        playerName = intent.getStringExtra("PLAYER_NAME");
         selectedAnswers = intent.getStringArrayListExtra("SELECTED_ANSWERS");
         if (selectedAnswers != null) {
             for (String answer : selectedAnswers) {
@@ -202,8 +204,10 @@ public class ReviewActivity extends AppCompatActivity {
     }
 
     private void startQuizAgain() {
-        questionHandler.resetUserAnswers();
-        startActivity(new Intent(this, MainActivity.class));
+        Intent intent = new Intent(ReviewActivity.this, MainActivity.class);
+        intent.putExtra("PLAYER_NAME", playerName);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
         finish();
     }
 }

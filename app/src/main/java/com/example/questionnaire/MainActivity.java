@@ -1,6 +1,7 @@
 package com.example.questionnaire;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.StateListDrawable;
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private List<Question> questions;
     private int currentQuestionIndex = 0;
     private Button[] answerButtons;
+    private String playerName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
         questionHandler = new QuestionHandler(this);
         questions = questionHandler.getQuestions();
         Log.d("MainActivity", "Questions loaded: " + questions.size());
+
+        Intent intent = getIntent();
+        playerName = intent.getStringExtra("PLAYER_NAME");
 
         questionCounterTextView = findViewById(R.id.questionCounterTextView);
         questionTextView = findViewById(R.id.questionTextView);
@@ -184,9 +189,19 @@ public class MainActivity extends AppCompatActivity {
         }
 
         Intent intent = new Intent(MainActivity.this, ResultActivity.class);
+        intent.putExtra("PLAYER_NAME", playerName);
         intent.putExtra("CORRECT_ANSWERS_COUNT", correctAnswersCount);
         intent.putStringArrayListExtra("CORRECT_ANSWERS_STRINGS", (ArrayList<String>) correctAnswerStrings);
         intent.putExtra("TOTAL_QUESTIONS", totalQuestions);
+
+        SharedPreferences sharedPreferences = getSharedPreferences("HighScores", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        int existingScore = sharedPreferences.getInt(playerName, -1);
+        if (existingScore == -1 || scorePercentage > existingScore) {
+            editor.putInt(playerName, scorePercentage);
+            editor.apply();
+        }
 
         ArrayList<String> selectedAnswers = new ArrayList<>();
         for (int i = 0; i < totalQuestions; i++) {
@@ -196,7 +211,6 @@ public class MainActivity extends AppCompatActivity {
 
         startActivity(intent);
     }
-
     private void onAnswerClick(View view) {
         Button clickedButton = (Button) view;
         String answer = clickedButton.getText().toString();
