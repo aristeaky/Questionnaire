@@ -1,94 +1,122 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
+    android:background="#E6E3E3"
     android:padding="16dp">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="50dp">
 
-    <TextView
-        android:id="@+id/titleTextView"
-        android:layout_width="220dp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:paddingLeft="50dp"
-        android:text="Results"
-        android:textColor="#0E0E0E"
-        android:textSize="52sp"
-        android:textStyle="bold|italic" />
+            <TextView
+                android:id="@+id/titleTextView"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:paddingLeft="50dp"
+                android:text="Results"
+                android:textColor="#0E0E0E"
+                android:textSize="52sp"
+                android:textStyle="bold|italic" />
 
-    <com.github.mikephil.charting.charts.PieChart
-        android:id="@+id/pieChart"
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/pieChart"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginTop="16dp" />
+
+            <TextView
+                android:id="@+id/scoreTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:textColor="#0C0C0C"
+                android:textSize="34sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/answersTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:textColor="#0E0E0E"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+    <Button
+        android:id="@+id/leaderboardButton"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_below="@id/answersTextView"
-        android:layout_marginTop="16dp"/>
-
-    <TextView
-        android:id="@+id/scoreTextView"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/reviewButton"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="16dp"
-        android:textColor="#0C0C0C"
-        android:textSize="34sp"
-        android:textStyle="bold" />
+        android:background="@drawable/button_shadow"
+        android:elevation="8dp"
+        android:gravity="center"
+        android:onClick="onLeaderboardButtonClick"
+        android:padding="16dp"
+        android:text="Leaderboard"
+        android:textColor="#0F4977"
+        android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/answersTextView"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/reviewButton"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/bottomButtonsContainer"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="16dp"
-        android:textColor="#0E0E0E"
+        android:background="@drawable/button_shadow"
+        android:elevation="8dp"
+        android:gravity="center"
+        android:onClick="onReviewButtonClick"
+        android:padding="16dp"
+        android:text="View Answers"
+        android:textColor="#0F4977"
         android:textSize="18sp" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:id="@+id/bottomButtonsContainer"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:orientation="horizontal"
         android:gravity="center"
-        android:layout_marginBottom="16dp">
+        android:layout_marginTop="16dp">
 
         <Button
             android:id="@+id/tryAgainButton"
-            android:layout_width="87dp"
-            android:layout_height="87dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/circular_button"
-            android:backgroundTint="#0E45A8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:gravity="center"
+            android:background="@drawable/button_shadow"
+            android:elevation="8dp"
             android:onClick="onTryAgainButtonClick"
             android:padding="16dp"
             android:text="Try Again"
-            android:textColor="@android:color/white" />
+            android:textColor="#0F4977"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <Button
-            android:id="@+id/reviewButton"
-            android:layout_width="87dp"
-            android:layout_height="87dp"
-            android:background="@drawable/circular_button"
-            android:backgroundTint="#0E45A7"
+            android:id="@+id/exitButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/button_shadow"
+            android:elevation="8dp"
             android:gravity="center"
-            android:onClick="onReviewButtonClick"
+            android:onClick="onExitButtonClick"
             android:padding="16dp"
-            android:text="Review"
-            android:textColor="@android:color/white"
-            android:textSize="14sp" />
-
+            android:text="Exit"
+            android:textColor="#B81515"
+            android:textSize="20sp"
+            android:textStyle="bold" />
     </LinearLayout>
-
-    <Button
-        android:id="@+id/exitButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal|bottom"
-        android:layout_marginBottom="16dp"
-        android:backgroundTint="#CD2222"
-        android:onClick="onExitButtonClick"
-        android:padding="16dp"
-        android:text="Exit"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-
-</LinearLayout>
+</RelativeLayout>
