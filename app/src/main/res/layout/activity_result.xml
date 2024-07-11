@@ -1,56 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#E6E3E3"
     android:padding="16dp">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="50dp"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottomButtonsContainer"
+        android:fillViewport="true">
 
-        <TextView
-            android:id="@+id/titleTextView"
-            android:layout_width="220dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="16dp"
-            android:paddingLeft="50dp"
-            android:text="Results"
-            android:textColor="#0E0E0E"
-            android:textSize="52sp"
-            android:textStyle="bold|italic" />
-
-        <com.github.mikephil.charting.charts.PieChart
-            android:id="@+id/pieChart"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:layout_marginTop="16dp" />
-
-        <TextView
-            android:id="@+id/scoreTextView"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:textColor="#0C0C0C"
-            android:textSize="34sp"
-            android:textStyle="bold" />
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="50dp">
 
-        <TextView
-            android:id="@+id/answersTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:textColor="#0E0E0E"
-            android:textSize="18sp" />
-    </LinearLayout>
+            <TextView
+                android:id="@+id/titleTextView"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:paddingLeft="50dp"
+                android:text="Results"
+                android:textColor="#0E0E0E"
+                android:textSize="52sp"
+                android:textStyle="bold|italic" />
+
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/pieChart"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginTop="16dp" />
+
+            <TextView
+                android:id="@+id/scoreTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:textColor="#0C0C0C"
+                android:textSize="34sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/answersTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:textColor="#0E0E0E"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </ScrollView>
 
     <Button
         android:id="@+id/leaderboardButton"
-        android:layout_width="809dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/reviewButton"
         android:layout_centerHorizontal="true"
@@ -66,7 +73,7 @@
 
     <Button
         android:id="@+id/reviewButton"
-        android:layout_width="809dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/bottomButtonsContainer"
         android:layout_centerHorizontal="true"
@@ -76,7 +83,7 @@
         android:gravity="center"
         android:onClick="onReviewButtonClick"
         android:padding="16dp"
-        android:text="view answers"
+        android:text="View Answers"
         android:textColor="#0F4977"
         android:textSize="18sp" />
 
@@ -85,7 +92,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="16dp">
 
         <Button
             android:id="@+id/tryAgainButton"

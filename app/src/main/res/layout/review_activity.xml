@@ -1,85 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp">
 
-
-    <TextView
-        android:id="@+id/questionCounterTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="64dp"
-        android:layout_alignParentTop="true"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="16dp"
-        android:text="Question 1/10"
-        android:textColor="#0C0C0C"
-        android:textSize="32sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/questionTextView"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="85dp"
-        android:layout_below="@id/questionCounterTextView"
-        android:layout_marginTop="-4dp"
-        android:text="Question"
-        android:textColor="#0B0A0A"
-        android:textSize="22sp"
-        android:textStyle="bold" />
+        android:layout_height="match_parent"
+        android:layout_above="@id/buttonLayout">
 
-    <Button
-        android:id="@+id/answerAButton"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_below="@id/questionTextView"
-        android:layout_marginTop="-10dp"
-        android:text="Answer A"
-        android:textSize="16sp" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/answerBButton"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_below="@id/questionTextView"
-        android:layout_marginTop="97dp"
-        android:text="Answer B"
-        android:textSize="16sp" />
+            <TextView
+                android:id="@+id/questionCounterTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="64dp"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:text="Question 1/10"
+                android:textColor="#0C0C0C"
+                android:textSize="32sp"
+                android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/answerCButton"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_below="@id/questionTextView"
-        android:layout_marginTop="206dp"
-        android:text="Answer C"
-        android:textSize="16sp" />
+            <TextView
+                android:id="@+id/questionTextView"
+                android:layout_width="match_parent"
+                android:layout_height="85dp"
+                android:layout_below="@id/questionCounterTextView"
+                android:layout_marginTop="-4dp"
+                android:text="Question"
+                android:textColor="#0B0A0A"
+                android:textSize="22sp"
+                android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/answerDButton"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_below="@id/questionTextView"
-        android:layout_marginTop="313dp"
-        android:text="Answer D"
-        android:textSize="16sp" />
+            <Button
+                android:id="@+id/answerAButton"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_below="@id/questionTextView"
+                android:layout_marginTop="-10dp"
+                android:text="Answer A"
+                android:textSize="16sp" />
 
-    <TextView
-        android:id="@+id/answerFeedbackTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/answerDButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:gravity="center"
-        android:text=""
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#FF0000"
-        android:textColorHint="#151414"
-        android:textSize="45sp"
-        android:textStyle="bold|italic" />
+            <Button
+                android:id="@+id/answerBButton"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_below="@id/questionTextView"
+                android:layout_marginTop="97dp"
+                android:text="Answer B"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/answerCButton"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_below="@id/questionTextView"
+                android:layout_marginTop="206dp"
+                android:text="Answer C"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/answerDButton"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_below="@id/questionTextView"
+                android:layout_marginTop="313dp"
+                android:text="Answer D"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/answerFeedbackTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/answerDButton"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:text=""
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="#FF0000"
+                android:textColorHint="#151414"
+                android:textSize="45sp"
+                android:textStyle="bold|italic" />
+
+        </RelativeLayout>
+
+    </ScrollView>
 
     <LinearLayout
+        android:id="@+id/buttonLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
